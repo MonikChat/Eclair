@@ -1,4 +1,4 @@
-@import './.variables.sass'
+@import './variables.sass'
 
 @each $weight in 400, 500, 600, 700
     .w-#{$weight}
@@ -19,4 +19,39 @@
     padding-right: 192px
 
 .shadow
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16)
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+
+.one-half-lg-full-sm
+    width: 50%
+
+.one-third-lg-full-sm
+    width: calc(100% / 3)
+
+.two-thirds-lg-full-sm
+    width: calc((100% / 3) * 2)
+
+.full
+    width: 100%
+
+.bg-orange
+    background-color: #FFAA3D !important
+
+.inline-link
+    color: inherit
+    text-decoration: underline
+
+@media screen and (max-width: 768px)
+    .one-half-lg-full-sm,
+    .one-third-lg-full-sm,
+    .two-thirds-lg-full-sm
+        width: 100%
+        padding: 0 !important
+
+    .large-pad-x
+        padding-left: 24px
+        padding-right: 24px
+
+@media screen and (max-width: 1280px)
+    .large-pad-x
+        padding-left: 64px
+        pading-right: 64px

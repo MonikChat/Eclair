@@ -1,0 +1,57 @@
+// Styles for the intro/landing page of Eclair.
+@import './variables.sass'
+
+.intro-container
+    display: flex
+    position: relative
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    min-width: 100%
+    min-height: 100%
+
+.intro-wrapper
+    width: 50%
+    max-width: 750px
+
+.btn-outline-reverse
+    align-self: 
+    
+.btn-intro
+    width: 100%
+    height: 64px
+    line-height: 50px
+    background-color: $green !important
+    color: #FFF
+    border-color: #FFF
+    transition: background-color 0.2s ease-out, color 0.2s ease-out
+
+    &:hover
+        background-color: #FFF !important
+        color: $green
+
+        & > svg > path
+            fill: $green !important
+
+    & > svg
+        display: inline-block
+        position: relative
+        top: 5px
+
+        & > path
+            transition: fill 0.2s ease-out
+
+.intro-footer
+    position: absolute
+    bottom: 0
+    line-height: 1.75rem
+    height: 100px
+
+@media screen and (max-width: 768px)
+    .intro-wrapper
+        min-width: 0 // This and max-width may seem redundant, but its to override the previous max-width and shit.
+        max-width: 100%
+        width: 75%
+
+    .intro-footer
+        position: relative

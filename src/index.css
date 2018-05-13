@@ -69,10 +69,6 @@ body {
     text-decoration: underline;
 }
 
-.icon {
-    display: inline-block;
-}
-
 .btn-intro {
     width: 100%;
     height: 64px;
@@ -92,10 +88,6 @@ body {
     display: inline-block;
     position: relative;
     top: 5px;
-}
-
-.btn-intro > .ripple {
-    background: rgba(40, 167, 69, 0.5);
 }
 
 .btn-intro > svg > path {
