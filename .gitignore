@@ -1,0 +1,12 @@
+# Filenames I use for the mockup images.
+1.png
+2.png
+3.png
+
+# Big stuff
+node_modules
+dist
+dev
+
+yarn.lock
+package-lock.json

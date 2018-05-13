@@ -1,0 +1,512 @@
+@import url('./fonts.css');
+
+*::selection,
+*::-moz-selection {
+    background-color: rgba(86, 167, 40, .5);
+    color: #FFF;
+}
+
+*,
+body {
+    font-family: 'Noto Sans', Roboto, Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.w-400 {
+    font-weight: 400;
+}
+
+.w-700 {
+    font-weight: 700;
+}
+
+.white {
+    color: #FFF;
+}
+
+.green {
+    color: #28A745;
+}
+
+.f00-light {
+    font-family: 'Noto Sans Display', Arial, Helvetica, sans-serif;
+}
+
+.large-pad-x {
+    padding-left: 192px;
+    padding-right: 192px;
+}
+
+.shadow {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.token {
+    font-family: 'Noto Mono', Courier New, Courier, monospace !important;
+}
+
+.intro-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.intro-wrapper {
+    width: 50%;
+    max-width: 750px;
+}
+
+.inline-link {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.icon {
+    display: inline-block;
+}
+
+.btn-intro {
+    width: 100%;
+    height: 64px;
+    line-height: 50px;
+    background-color: #28A745 !important;
+    color: #fff;
+    border-color: #fff;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.btn-intro:hover {
+    background-color: #fff !important;
+    color: #28A745;
+}
+
+.btn-intro > svg {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+}
+
+.btn-intro > .ripple {
+    background: rgba(40, 167, 69, 0.5);
+}
+
+.btn-intro > svg > path {
+    transition: fill 0.2s ease-out;
+}
+
+.btn-intro:hover > svg > path {
+    fill: #28A745 !important;
+}
+
+.intro-footer {
+    position: absolute;
+    bottom: 0;
+    line-height: 1.75rem;
+    height: 100px;
+}
+
+.one-half-lg-full-sm {
+    width: 50%;
+}
+
+.one-third-lg-full-sm {
+    width: calc(100% / 3);
+}
+
+.two-thirds-lg-full-sm {
+    width: calc((100% / 3) * 2);
+}
+
+.full {
+    width: 100%;
+}
+
+.bg-orange {
+    background-color: #FFAA3D !important;
+}
+
+nav {
+    height: 64px;
+    line-height: 64px;
+    padding: 0 16px;
+    background: #28A745;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    margin: 8px;
+    padding: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    outline: none;
+}
+
+nav > .title {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.advanced-container {
+    width: 100%;
+    height: calc(100% - 64px);
+    overflow: auto;
+}
+
+.editor {
+    height: 100%;
+    background: #E6E6E6;
+}
+
+.code {
+    height: 100%;
+    background: #252525;
+    position: relative;
+}
+
+.code .header {
+    width: 100%;
+    height: 64px;
+    line-height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+.code .header > svg {
+    display: inline-block;
+    position: relative;
+    top: 18px;
+}
+
+.code .header > .right {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.code-test-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: initial;
+    border: none;
+    padding: 0;
+}
+
+.code-test-btn > svg {
+    position: relative;
+    top: 1px;
+}
+
+.code-block {
+    background: transparent !important;
+    display: flex !important;
+    position: relative;
+    padding: 16px !important;
+    margin: 0 !important;
+}
+
+.code-block > code {
+    display: block !important;
+    width: 100% !important;
+    white-space: pre-wrap;
+}
+
+.editor {
+    position: relative;
+    overflow: auto;
+}
+
+.editor .header {
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    position: relative;
+}
+
+.dialogue-option {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.dialogue-option > input {
+    position: absolute;
+    opacity: 0;
+    cursor: default;
+}
+
+.dialogue-option > label {
+    display: block;
+    height: 100%;
+    line-height: 48px;
+    text-align: center;
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.dialogue-option > input:checked + label {
+    background-color: #28A745;
+    color: #FFF;
+}
+
+.dialogue-option > label > svg {
+    position: relative;
+    top: 6px;
+}
+
+.dialogue-option > label > svg > path {
+    transition: fill 0.2s ease-out;
+}
+
+.dialogue-option > input:checked + label > svg > path {
+    fill: #FFF !important;
+}
+
+.editor .content {
+    width: 100%;
+}
+
+fieldset > label {
+    display: block;
+}
+
+.form-wrapper,
+.btn-wrapper__inner {
+    position: relative;
+}
+
+.btn-wrapper {
+    position: absolute;
+    top: -20px;
+    display: flex;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: right;
+    pointer-events: none;
+}
+
+.btn-circle {
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 50px;
+    top: 0;
+    pointer-events: auto;
+}
+
+.btn-circle.large {
+    padding: 16px;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-left: 30px !important;
+}
+
+.fake-arrow {
+    position: absolute;
+    left: 8px;
+    top: 16px;
+    background: #FFF;
+}
+
+fieldset > label > svg {
+    position: relative;
+    top: 5px;
+}
+
+.card-actions {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-buttons button + button {
+    margin-left: 16px;
+}
+
+.card-paginator {
+    height: 25px;
+    max-width: 100%;
+    margin-top: 8px;
+    position: relative;
+    display: flex;
+}
+
+.paginate-btn {
+    border: none;
+    background: initial;
+    padding: 0;
+    display: inline-block;
+}
+
+.dots {
+    max-width: 100%;
+    display: inline-block;
+}
+
+.dot {
+    height: 6px;
+    width: 6px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 2px;
+}
+
+.dot.selected {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.form-control {
+    padding: 14px 16px;
+    font-size: 1rem;
+}
+
+.basic-container {
+    width: 100%;
+    height: calc(100% - 128px);
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.basic-container__inner {
+    width: 100%;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.navigation__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navigation__inner button {
+    background: initial;
+    border: none;
+    padding: 0;
+    width: 128px;
+    height: 64px;
+}
+
+.navigation__inner button + button {
+    margin-left: 128px;
+}
+
+.btn-basic-submit {
+    display: block;
+    padding: 16px 48px;
+}
+
+.btn-green {
+    background: #28A745;
+    color: #FFF;
+}
+
+.btn-green:hover {
+    background: #28A745;
+    color: #FFF;
+}
+
+.btn-green:hover::after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: "";
+    background: rgba(0, 0, 0, 0.25);
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+}
+
+@media screen and (max-width: 768px) {
+    .one-half-lg-full-sm,
+    .one-third-lg-full-sm,
+    .two-thirds-lg-full-sm {
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .intro-wrapper {
+        min-width: 0;
+        max-width: 100%;
+        width: 75%;
+    }
+
+    .intro-footer {
+        position: relative;
+    }
+
+    .btn-intro + p {
+        text-align: justify !important;
+    }
+
+    .back-button {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    nav {
+        padding: 0 8px;
+    }
+
+    .large-pad-x {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .navigation__inner {
+        width: 100%;
+    }
+
+    .navigation__inner button {
+        width: 50%;
+    }
+
+    .navigation__inner button + button {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .large-pad-x {
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+}

@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <title>&Eacute;clair - MAS Dialogue Generator</title>
+        <link rel="stylesheet" href="https://unpkg.com/primer@10.4.0/build/build.css">
+        <link rel="stylesheet" href="prism.css">
+        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!--div class="bg-green intro-container">
+            <div class="intro-wrapper">
+                <h1 class="text-center white f00-light">
+                    Welcome to &Eacute;clair
+                    <svg width="48" height="48" viewBox="0 0 24 24">
+                        <path fill="#FFFFFF" d="M12,6C13.11,6 14,5.1 14,4C14,3.62 13.9,3.27 13.71,2.97L12,0L10.29,2.97C10.1,3.27 10,3.62 10,4A2,2 0 0,0 12,6M16.6,16L15.53,14.92L14.45,16C13.15,17.29 10.87,17.3 9.56,16L8.5,14.92L7.4,16C6.75,16.64 5.88,17 4.96,17C4.23,17 3.56,16.77 3,16.39V21A1,1 0 0,0 4,22H20A1,1 0 0,0 21,21V16.39C20.44,16.77 19.77,17 19.04,17C18.12,17 17.25,16.64 16.6,16M18,9H13V7H11V9H6A3,3 0 0,0 3,12V13.54C3,14.62 3.88,15.5 4.96,15.5C5.5,15.5 6,15.3 6.34,14.93L8.5,12.8L10.61,14.93C11.35,15.67 12.64,15.67 13.38,14.93L15.5,12.8L17.65,14.93C18,15.3 18.5,15.5 19.03,15.5C20.11,15.5 21,14.62 21,13.54V12A3,3 0 0,0 18,9Z" />
+                    </svg>
+                </h1>
+                <p class="text-center white f3">A dialog generator for <a href="https://www.monikaafterstory.com/" target="_blank" class="inline-link">Monika After Story</a>.</p>
+                <p class="text-center white f2 py-4">Pick an option to get started<br>making your dialogue!</p>
+
+                <div class="columns">
+                    <div class="one-half-lg-full-sm column pr-4 pl-0">
+                        <button class="btn btn-outline btn-outline-reverse text-normal btn-intro f2">
+                            <svg width="30" height="30" viewBox="0 0 24 24">
+                                <path fill="#FFFFFF" d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+                            </svg>
+                            Basic
+                        </button>
+                        <p class="white text-left mt-2 f4">
+                            If you're new to Monika After Story, and want to take it easy.
+                            Training wheels included.
+                        </p>
+                    </div>
+                    <div class="one-half-lg-full-sm column pl-4 pr-0">
+                        <button class="btn btn-outline btn-outline-reverse text-normal btn-intro f2">
+                            Advanced
+                            <svg width="30" height="30" viewBox="0 0 24 24">
+                                <path fill="#FFFFFF" d="M2.81,14.12L5.64,11.29L8.17,10.79C11.39,6.41 17.55,4.22 19.78,4.22C19.78,6.45 17.59,12.61 13.21,15.83L12.71,18.36L9.88,21.19L9.17,17.66C7.76,17.66 7.76,17.66 7.05,16.95C6.34,16.24 6.34,16.24 6.34,14.83L2.81,14.12M5.64,16.95L7.05,18.36L4.39,21.03H2.97V19.61L5.64,16.95M4.22,15.54L5.46,15.71L3,18.16V16.74L4.22,15.54M8.29,18.54L8.46,19.78L7.26,21H5.84L8.29,18.54M13,9.5A1.5,1.5 0 0,0 11.5,11A1.5,1.5 0 0,0 13,12.5A1.5,1.5 0 0,0 14.5,11A1.5,1.5 0 0,0 13,9.5Z" />
+                             </svg>
+                        </button>
+                        <p class="white text-left mt-2 f4">
+                            If you're a discerning wizard who wants all the power.
+                            We got your back fam.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="intro-footer white h5 text-center pt-4 pb-2">
+                Brought to you by <a href="#" class="inline-link">vermicellibug</a> and the <a href="#" class="inline-link">Evergreen team</a>.
+                <br>
+                This thing is <a href="#" class="inline-link">open source</a> as well!
+            </div>
+        </div-->
+
+
+        <!--nav>
+            <button class="back-button">
+                <svg width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="#FFFFFF" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                </svg>
+            </button>
+            <div class="title">
+                <h3 class="white ml-4 w-400">Advanced Editor</h3>
+                <svg class="ml-2" width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="#FFFFFF" d="M2.81,14.12L5.64,11.29L8.17,10.79C11.39,6.41 17.55,4.22 19.78,4.22C19.78,6.45 17.59,12.61 13.21,15.83L12.71,18.36L9.88,21.19L9.17,17.66C7.76,17.66 7.76,17.66 7.05,16.95C6.34,16.24 6.34,16.24 6.34,14.83L2.81,14.12M5.64,16.95L7.05,18.36L4.39,21.03H2.97V19.61L5.64,16.95M4.22,15.54L5.46,15.71L3,18.16V16.74L4.22,15.54M8.29,18.54L8.46,19.78L7.26,21H5.84L8.29,18.54M13,9.5A1.5,1.5 0 0,0 11.5,11A1.5,1.5 0 0,0 13,12.5A1.5,1.5 0 0,0 14.5,11A1.5,1.5 0 0,0 13,9.5Z" />
+                </svg>
+            </div>
+        </nav>
+
+        <div class="advanced-container py-6 large-pad-x">
+            <div class="columns gutter-4">
+                <div class="column one-half-lg-full-sm pr-4 pl-2">
+                    <div class="editor shadow">
+                        <div class="header columns">
+                            <div class="column dialogue-option one-third-lg-full-sm">
+                                <input type="radio" name="special-options" id="randomised" value="randomised">
+                                <label for="randomised">
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#24292E" d="M17,3L22.25,7.5L17,12L22.25,16.5L17,21V18H14.26L11.44,15.18L13.56,13.06L15.5,15H17V12L17,9H15.5L6.5,18H2V15H5.26L14.26,6H17V3M2,6H6.5L9.32,8.82L7.2,10.94L5.26,9H2V6Z" />
+                                    </svg>
+                                    Randomised
+                                </label>
+                            </div>
+                            <div class="column dialogue-option one-third-lg-full-sm">
+                                <input type="radio" name="special-options" id="pool" value="pool">
+                                <label for="pool">
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#24292E" d="M12,18A6,6 0 0,1 6,12C6,11 6.25,10.03 6.7,9.2L5.24,7.74C4.46,8.97 4,10.43 4,12A8,8 0 0,0 12,20V23L16,19L12,15M12,4V1L8,5L12,9V6A6,6 0 0,1 18,12C18,13 17.75,13.97 17.3,14.8L18.76,16.26C19.54,15.03 20,13.57 20,12A8,8 0 0,0 12,4Z" />
+                                    </svg>
+                                    Pool
+                                </label>
+                            </div>
+                            <div class="column dialogue-option one-third-lg-full-sm">
+                                <input type="radio" name="special-options" id="none" value="none" checked>
+                                <label for="none">
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#24292E" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                    </svg>
+                                    None
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="content p-4">
+                            <fieldset class="pb-4">
+                                <label class="f3 pb-1">
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#24292E" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                                    </svg>
+                                    Title
+                                </label>
+                                <input class="form-control two-thirds-lg-full-sm" type="text" placeholder="Roses">
+                            </fieldset>
+                            
+                            <fieldset class="pb-4">
+                                <label class="f3 pb-1">
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#24292E" d="M10,19H13V22H10V19M12,2C17.35,2.22 19.68,7.62 16.5,11.67C15.67,12.67 14.33,13.33 13.67,14.17C13,15 13,16 13,17H10C10,15.33 10,13.92 10.67,12.92C11.33,11.92 12.67,11.33 13.5,10.67C15.92,8.43 15.32,5.26 12,5A3,3 0 0,0 9,8H6A6,6 0 0,1 12,2Z" />
+                                    </svg>
+                                    Question
+                                </label>
+                                <input class="form-control two-thirds-lg-full-sm" type="text" placeholder="Do you like roses?">
+                            </fieldset>
+
+                            <fieldset class="pb-4">
+                                <label class="f3 pb-1">
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#24292E" d="M7,5H21V7H7V5M7,13V11H21V13H7M4,4.5A1.5,1.5 0 0,1 5.5,6A1.5,1.5 0 0,1 4,7.5A1.5,1.5 0 0,1 2.5,6A1.5,1.5 0 0,1 4,4.5M4,10.5A1.5,1.5 0 0,1 5.5,12A1.5,1.5 0 0,1 4,13.5A1.5,1.5 0 0,1 2.5,12A1.5,1.5 0 0,1 4,10.5M7,19V17H21V19H7M4,16.5A1.5,1.5 0 0,1 5.5,18A1.5,1.5 0 0,1 4,19.5A1.5,1.5 0 0,1 2.5,18A1.5,1.5 0 0,1 4,16.5Z" />
+                                    </svg>
+                                    Topics
+                                </label>
+                                <div class="form-wrapper two-thirds-lg-full-sm pb-4">
+                                    <select class="form-control full" aria-label="Topics">
+                                        <option>Bananas</option>
+                                        <option>Apples</option>
+                                        <option>Cutes</option>
+                                        <option>Games</option>
+                                        <option>Memes</option>
+                                    </select>
+
+                                    <div class="btn-wrapper">
+                                        <div class="btn-wrapper__inner">
+                                            <button class="btn-circle bg-red shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="fake-arrow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M7,10L12,15L17,10H7Z" /></svg>
+                                    </div>
+                                </div>
+
+                                <div class="form-wrapper two-thirds-lg-full-sm">
+                                    <select class="form-control full" aria-label="Topics">
+                                        <option>Bananas</option>
+                                        <option>Apples</option>
+                                        <option>Cutes</option>
+                                        <option>Games</option>
+                                        <option>Memes</option>
+                                    </select>
+
+                                    <div class="btn-wrapper">
+                                        <div class="btn-wrapper__inner">
+                                            <button class="btn-circle bg-green shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="btn-circle bg-red shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="fake-arrow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M7,10L12,15L17,10H7Z" /></svg>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="pb-4">
+                                <label class="f3 pb-1">
+                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="#24292E" d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M20,16H6L4,18V4H20" />
+                                    </svg>
+                                    Responses
+                                </label>
+
+                                <div class="form-wrapper two-thirds-lg-full-sm pb-4">
+                                    <input class="form-control full" placeholder="Blah blah blah.">
+
+                                    <div class="btn-wrapper">
+                                        <div class="btn-wrapper__inner">
+                                            <button class="btn-circle bg-orange shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="btn-circle bg-yellow shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M9,11.75A1.25,1.25 0 0,0 7.75,13A1.25,1.25 0 0,0 9,14.25A1.25,1.25 0 0,0 10.25,13A1.25,1.25 0 0,0 9,11.75M15,11.75A1.25,1.25 0 0,0 13.75,13A1.25,1.25 0 0,0 15,14.25A1.25,1.25 0 0,0 16.25,13A1.25,1.25 0 0,0 15,11.75M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,11.71 4,11.42 4.05,11.14C6.41,10.09 8.28,8.16 9.26,5.77C11.07,8.33 14.05,10 17.42,10C18.2,10 18.95,9.91 19.67,9.74C19.88,10.45 20,11.21 20,12C20,16.41 16.41,20 12,20Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="btn-circle bg-red shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-wrapper two-thirds-lg-full-sm pb-4">
+                                    <input class="form-control full" placeholder="Blah blah blah.">
+
+                                    <div class="btn-wrapper">
+                                        <div class="btn-wrapper__inner">
+                                            <button class="btn-circle bg-green shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="btn-circle bg-orange shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="btn-circle bg-yellow shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M9,11.75A1.25,1.25 0 0,0 7.75,13A1.25,1.25 0 0,0 9,14.25A1.25,1.25 0 0,0 10.25,13A1.25,1.25 0 0,0 9,11.75M15,11.75A1.25,1.25 0 0,0 13.75,13A1.25,1.25 0 0,0 15,14.25A1.25,1.25 0 0,0 16.25,13A1.25,1.25 0 0,0 15,11.75M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,11.71 4,11.42 4.05,11.14C6.41,10.09 8.28,8.16 9.26,5.77C11.07,8.33 14.05,10 17.42,10C18.2,10 18.95,9.91 19.67,9.74C19.88,10.45 20,11.21 20,12C20,16.41 16.41,20 12,20Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="btn-circle bg-red shadow">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="#FFFFFF" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="card-actions">
+                                <div class="card-buttons">
+                                    <button class="btn-circle large bg-red shadow">
+                                        <svg width="36" height="36" viewBox="0 0 24 24">
+                                            <path fill="#FFFFFF" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-circle large bg-green shadow">
+                                        <svg width="36" height="36" viewBox="0 0 24 24">
+                                            <path fill="#FFFFFF" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="card-paginator">
+                                    <button class="paginate-btn left">
+                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="#24292E" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                                        </svg>
+                                    </button>
+
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                        <div class="dot selected"></div>
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
+
+                                    <button class="paginate-btn right">
+                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="#24292E" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column one-half-lg-full-sm pl-4 pr-2">
+                    <div class="code shadow">
+                        <div class="header px-4">
+                            <svg class="mr-2" width="30" height="30" viewBox="0 0 24 24">
+                                <path fill="#FFFFFF" d="M19,10H17V8H19M19,13H17V11H19M16,10H14V8H16M16,13H14V11H16M16,17H8V15H16M7,10H5V8H7M7,13H5V11H7M8,11H10V13H8M8,8H10V10H8M11,11H13V13H11M11,8H13V10H11M20,5H4C2.89,5 2,5.89 2,7V17A2,2 0 0,0 4,19H20A2,2 0 0,0 22,17V7C22,5.89 21.1,5 20,5Z" />
+                            </svg>
+                            <h2 class="white w-400">Code</h2>
+
+                            <div class="right">
+                                <button class="code-test-btn">
+                                    <h2 class="green w-400">Test</h2>
+                                    <svg class="ml-2" width="30" height="30" viewBox="0 0 24 24">
+                                        <path fill="#28A745" d="M10,16.5V7.5L16,12M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <pre class="code-block">
+                            <code class="language-renpy">
+init 5 python:
+    addEvent(Event(persistent.event_database, eventlabel="monika_banana", category=["advice"], prompt="i liek choltat malk", random=True))
+                            
+label monika_banana:
+    m 1a "s"
+    return
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div-->
+
+
+        <!--nav>
+            <button class="back-button">
+                <svg width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="#FFFFFF" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                </svg>
+            </button>
+            <div class="title">
+                <h3 class="white ml-4 w-400">Basic Editor</h3>
+                <svg class="ml-2" width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="#FFFFFF" d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+                </svg>
+            </div>
+        </nav>
+
+        <div class="basic-container large-pad-x">
+            <div class="basic-container__inner">
+                <h1 class="green f00-light">First thing's first!</h1>
+                <h2 class="f2-light">
+                    Let's give your topic a name. It should be related to<br>
+                    what you would like Monika to talk about.
+                </h2>
+                <h4 class="mt-2 mb-6 f4-light">An example for a conversation about flowers could be &quot;Roses&quot;</h4>
+
+                <input class="form-control one-half-lg-full-sm" placeholder="Topic title">
+                <button class="mt-3 btn btn-basic-submit btn-green">Next</button>
+            </div>
+        </div>
+
+        <nav>
+            <div class="navigation">
+                <div class="navigation__inner">
+                    <button>
+                        <svg width="30" height="30" viewBox="0 0 24 24">
+                            <path fill="#FFFFFF" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                        </svg>
+                    </button>
+                    <button>
+                        <svg width="30" height="30" viewBox="0 0 24 24">
+                            <path fill="#FFFFFF" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav-->
+
+        <script src="js/prism.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
