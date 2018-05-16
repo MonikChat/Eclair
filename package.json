@@ -10,15 +10,14 @@
   },
   "dependencies": {
     "@hyperapp/router": "^0.7.0",
-    "hyperapp": "^1.2.5",
-    "hyperapp-redux-devtools": "^1.1.6",
-    "primer": "^10.4.0"
+    "hyperapp": "^1.2.5"
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-plugin-jsx": "^0.0.2",
+    "hyperapp-redux-devtools": "^1.1.6",
     "node-sass": "^4.9.0",
     "parcel-bundler": "^1.7.1"
   }

@@ -1,0 +1,59 @@
+@import './variables.sass'
+
+.basic-container
+    width: 100%
+    height: calc(100% - 128px)
+    overflow: auto
+    display: flex
+    flex-direction: row
+    align-items: center
+
+.basic-container__inner
+    width: 100%
+
+.navigation
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 100%
+
+.navigation__inner
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    & button
+        width: 128px
+        height: 64px
+
+        & + button
+            margin-left: 128px
+
+.btn-basic-submit
+    display: block
+    padding: 16px 48px
+
+.btn-green,
+.btn-green:hover
+    background: $green
+    color: FFF
+
+.btn-green:hover::after
+    width: 100%
+    height: 100%
+    position: absolute
+    content: ""
+    background: rgba(0, 0, 0, 0.25)
+    top: 0
+    left: 0
+    border-radius: inherit
+
+@media screen and (max-width: 768px)
+    .navigation__inner
+        width: 100%
+
+        & button
+            width: 50%
+
+            & + button
+                margin: 0

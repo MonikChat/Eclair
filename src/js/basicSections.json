@@ -1,0 +1,33 @@
+[
+    {
+        "title": "First,",
+        "body": "Let's give your topic a label. This is used to identify the code block.",
+        "extra": "A label for a coversation about flowers would be \"flowers\".",
+        "placeholder": "Topic label",
+        "section": "label",
+        "type": "input"
+    },
+    {
+        "title": "Next,",
+        "body": "Give your topic a prompt. This shown to the player to represent the topic.",
+        "extra": "An example for a coversation about flowers could be \"Do you like flowers?\"",
+        "placeholder": "Topic prompt",
+        "section": "prompt",
+        "type": "input"
+    },
+    {
+        "title": "Now,",
+        "body": "We'll set some categories for the topic. This is",
+        "extra": "Example categories for a conversation about flowers could be \"life\" or \"philosophy\".",
+        "section": "categories",
+        "type": "dropdown",
+        "multi": true
+    },
+    {
+        "title": "Finally,",
+        "body": "haha u got bamboozled xd",
+        "extra": "monika succs kek",
+        "section": "dayb",
+        "type": "black-hole"
+    }
+]

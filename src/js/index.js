@@ -1,68 +1,48 @@
-import {h, app} from 'hyperapp';
-import {Cake, Hat, Rocket} from './icons.js';
+import {h, app as original} from 'hyperapp';
+import {location, Route, Switch} from '@hyperapp/router';
 
+import {Intro, Basic, Advanced} from './views';
+import sections from './basicSections.json';
 import '../sass/index.sass';
 
 let globApp;
-let appFunc;
+let app = original;
 
-if (process.env.NODE_ENV !== 'production') appFunc = require('hyperapp-redux-devtools')(app);
-else appFunc = app;
+if (process.env.NODE_ENV !== 'production') app = require('hyperapp-redux-devtools')(app);
 
 const state = {
-    mode: null
+    mode: null,
+    location: location.state,
+    basic: {
+        position: 0,
+        completedSections: {}
+    },
+    advanced: {}
 };
 const actions = {
-    setMode: mode => () => ({mode})
+    setMode: mode => () => {
+        if (['basic', 'advanced'].includes(mode)) return {mode};
+    },
+    basic: {
+        nextSection: () => ({position}) => position < sections.length - 1 ? ({position: ++position}) : null,
+        previousSection: () => ({position}) => position > 0 ? ({position: --position}) : null,
+        updateSection: val => state => {
+            state.completedSections[sections[state.position].section] = val;
+            return {completedSections: state.completedSections};
+        }
+    },
+    advanced: {},
+    location: location.actions
 };
 const view = (state, actions) => (
-    <div class="bg-green intro-container">
-        <div class="intro-wrapper">
-            <h1 class="text-center white f00-light">
-                Welcome to &Eacute;clair
-                <Cake/>
-            </h1>
-
-            <p class="text-center white f3">
-                A dialogue generator <a href="https://www.monikaafterstory.com/" target="blank" class="inline-link">Monika After Story</a>.
-            </p>
-            <p class="text-center white f2 py-4">
-                Pick a mode below to get started<br/>
-                making your dialogue!
-            </p>
-
-            <div class="columns">
-                <div class="one-half-lg-full-sm column pr-4 pl-0">
-                    <button class="btn btn-outline text-normal btn-intro f2" onclick={() => actions.setMode('basic')}>
-                        <Hat/>
-                        Basic
-                    </button>
-                    <p class="white text-left mt-2 f4">
-                        If you're new to Monika After Story, and want to take it easy.
-                        Training wheels inluded.
-                    </p>
-                </div>
-
-                <div class="one-half-lg-full-sm column pl-4 pr-0">
-                    <button class="btn btn-outline text-normal btn-intro f2" onclick={() => actions.setMode('advanced')}>
-                        Advanced
-                        <Rocket/>
-                    </button>
-                    <p class="white text-left mt-2 f4">
-                        If you're a discerning wizard who wants all the power.
-                        We got your back fam.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="intro-footer white h5 text-center pt-4 pb-2">
-            Broguht you to by <a href="https://github.com/vermicellibug" class="inline-link" target="_blank">vermicellibug</a> and the <a href="https://github.com/ProjectMonika" class="inline-link" target="_blank">Evergreen team</a>.
-            <br/>
-            This thing is <a href="https://github.com/ProjectMonika/Eclair" class="inline-link" target="_blank">open source</a> as well!
-        </div>
-    </div>
+    <Switch>
+        <Route path="/" render={pass => Intro(pass, {state, actions})}/>
+        <Route path="/basic" render={pass => Basic(pass, {state, actions})}/>
+        <Route path="/advanced" render={pass => Advanced(pass, {state, actions})}/>
+    </Switch>
 );
 
-if (process.env.NODE_ENV !== 'production') window.globApp = appFunc(state, actions, view, document.body);
-else globApp = appFunc(state, actions, view, document.body);
+if (process.env.NODE_ENV !== 'production') globApp = window.globApp = app(state, actions, view, document.body);
+else globApp = app(state, actions, view, document.body);
+
+location.subscribe(globApp.location);

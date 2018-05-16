@@ -1,4 +1,5 @@
 @import './fonts.sass'
+@import './variables.sass'
 
 ::selection,
 ::-moz-selection
@@ -12,3 +13,43 @@ body
 body
     width: 100%
     height: 100%
+
+// Needed to stop Firefox bugging out
+div[data-hyperapp-root]
+    height: 100%
+
+.form-control
+    padding: 14px 16px
+    font-size: 1rem
+
+button
+    background: initial
+    border: none
+    padding: 0
+
+nav
+    height: 64px
+    line-height: 64px
+    padding: 0 16px
+    background: $green
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    & > .title
+        width: 100%
+        height: 64px
+        display: flex
+        flex-direction: row
+        align-items: center
+
+.disabled
+    cursor: default
+    pointer-events: none
+
+    & path
+        fill: rgba(255, 255, 255, 0.5)
+
+@media screen and (max-width: 768px)
+    nav
+        padding: 0 8px

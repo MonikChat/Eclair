@@ -1,0 +1,88 @@
+@import './mixins.sass'
+
+code[class*="language-"],
+pre[class*="language-"]
+    color: #CCC
+    background: none
+    font-family: 'Noto Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace
+    text-align: left
+    white-space: pre
+    word-spacing: normal
+    word-break: normal
+    word-wrap: normal
+    line-height: 1.5
+
+    @include vendor(tab-size, 4, moz o)
+    @include vendor(hypens, none, webkit moz ms)
+
+pre[class*="language-"]
+    padding: 1em
+    margin: 0.5em 0
+    overflow: auto
+
+*:not(pre) > code[class*="language-"]
+    padding: 0.1em
+    border-radius: 0.3em
+    white-space: normal
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata
+    color: #999
+
+.token.punctuation
+    color: #CCC
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted
+    color: #E2777A
+
+.token.function-name
+    color: #6196CC
+
+.token.boolean,
+.token.number,
+.token.function
+    color: #F08D49
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol
+    color: #F8C555
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin
+    color: #CC99CD
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token-regex,
+.token.variable
+    color: #7EC699
+
+.token.operator,
+.token.entity,
+.token.url
+    color: #67CDCC
+
+.token.important,
+.token.bold
+    font-weight: bold
+
+.token.italic
+    font-style: italic
+
+.token.entity
+    cursor: help
+
+.token.inserted
+    color: green
