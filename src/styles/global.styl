@@ -1,0 +1,114 @@
+@require 'fonts'
+@require 'variables'
+
+::selection,
+::-moz-selection
+    background-color: alpha($green, 0.5) !important
+    color: #FFF !important
+
+*,
+body
+    font-family: 'Noto Sans', Roboto, Arial, Helvetica, sans-serif
+
+body
+    width: 100%
+    height: 100%
+
+// Needed to stop Firefox bugging out
+div[data-hyperapp-root]
+    height: 100%
+
+.form-control
+    padding: 14px 16px
+    font-size: 1rem
+
+button
+    background: initial
+    border: none
+    padding: 0
+
+nav
+    height: 64px
+    line-height: 64px
+    padding: 0 16px
+    background: $green
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    & > .title
+        width: 100%
+        height: 64px
+        display: flex
+        flex-direction: row
+        align-items: center
+
+
+.btn-green
+    background: $green !important
+    color: #FFF !important
+
+.btn-orange
+    background: $orange !important
+
+.btn-yellow
+    background: $yellow !important
+
+.btn-green:hover::after,
+.btn-orange:hover::after,
+.btn-yellow:hover::after
+        width: 100%
+        height: 100%
+        position: absolute
+        content: ""
+        background: rgba(0, 0, 0, 0.25)
+        top: 0
+        left: 0
+        border-radius: inherit
+
+.disabled
+    cursor: default
+    pointer-events: none
+
+    & path
+        fill: rgba(255, 255, 255, 0.5)
+
+.btn
+    transition: background-color 0.2s ease-out, color 0.2s ease-out
+
+    &.disabled
+        background: rgba(0, 0, 0, 0.25) !important
+
+.image-selector
+    background: #212121
+    width: 500px
+    max-height: 300px
+    position: absolute
+    top: 1rem
+    right: 1rem
+    z-index: 9999
+    overflow-y: auto
+    border-radius: 0.25rem
+    // display: hidden
+    padding: 1rem
+
+    &__inner
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-gap: 0.5rem 0.5rem
+
+        & img
+            border-radius: 0.25rem
+            width: 100%
+            cursor: pointer
+            box-sizing: border-box
+
+            &.highlighted
+                border: solid 5px $green
+
+    &.open
+        display: block
+
+@media screen and (max-width: 768px)
+    nav
+        padding: 0 8px

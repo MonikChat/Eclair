@@ -1,0 +1,5 @@
+vendor(prop, val, prefixes=(webkit moz ms o))
+    for prefix in prefixes
+        -{prefix}-{prop}: val;
+    
+    {prop}: val

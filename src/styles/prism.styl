@@ -1,4 +1,4 @@
-@import './mixins.sass'
+@require 'mixins'
 
 code[class*="language-"],
 pre[class*="language-"]
@@ -12,8 +12,8 @@ pre[class*="language-"]
     word-wrap: normal
     line-height: 1.5
 
-    @include vendor(tab-size, 4, moz o)
-    @include vendor(hypens, none, webkit moz ms)
+    vendor(tab-size, 4, moz o)
+    vendor(hypens, none, webkit moz ms)
 
 pre[class*="language-"]
     padding: 1em

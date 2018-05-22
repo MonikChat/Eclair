@@ -1,5 +1,5 @@
-@import './variables.sass'
-@import './mixins.sass'
+@require 'variables'
+@require 'mixins'
 
 .advanced-container
     width: 100%
@@ -60,7 +60,7 @@
     overflow: auto
 
     & .header
-        with: 100%
+        width: 100%
         height: 48px
         margin: 0
         position: relative
@@ -136,7 +136,7 @@ fieldset > label
 select
     padding-left: 30px !important
 
-    @include vendor(appearance, none, moz webkit)
+    vendor(appearance, none, moz webkit)
 
 .fake-arrow
     position: absolute
