@@ -17,7 +17,7 @@
     },
     {
         "title": "Now,",
-        "body": "We'll set some categories for the topic. This is",
+        "body": "We'll set some categories for the topic. This is used for something but I don't know what :aaaaa:",
         "extra": "Example categories for a conversation about flowers could be \"life\" or \"philosophy\".",
         "section": "categories",
         "type": "dropdown",
@@ -25,9 +25,26 @@
     },
     {
         "title": "Finally,",
-        "body": "haha u got bamboozled xd",
-        "extra": "monika succs kek",
-        "section": "dayb",
-        "type": "black-hole"
+        "body": "Let's give Monika some dialogue and expressions and stuff.",
+        "extra": "Press the face icon to set an expression for the line, and press the body button to set a pose.",
+        "placeholder": "Dialogue line",
+        "section": "dialogue",
+        "type": "input",
+        "multi": true,
+        "buttons": [
+            {
+                "click": "openSelector(this)",
+                "create": "createSelector('pose', this)",
+                "icon": "Body",
+                "colour": "orange",
+                "label": "Select a pose"
+            },
+            {
+                "click": "openSelector(this)",
+                "icon": "Face",
+                "colour": "yellow",
+                "label": "Select a pose"
+            },
+        ]
     }
 ]

@@ -1,9 +1,9 @@
 import {h, app as original} from 'hyperapp';
 import {location, Route, Switch} from '@hyperapp/router';
+// import {Enter, Exit} from '@hyperapp/transitions';
 
 import {Intro, Basic, Advanced} from './views';
 import sections from './basicSections.json';
-import '../sass/index.sass';
 
 let globApp;
 let app = original;
@@ -15,7 +15,8 @@ const state = {
     location: location.state,
     basic: {
         position: 0,
-        completedSections: {}
+        completedSections: {},
+        toRight: false
     },
     advanced: {}
 };
@@ -29,20 +30,37 @@ const actions = {
         updateSection: val => state => {
             state.completedSections[sections[state.position].section] = val;
             return {completedSections: state.completedSections};
-        }
+        },
+        setDir: val => () => ({toRight: val})
     },
     advanced: {},
-    location: location.actions
+    location: location.actions,
+    getState: () => state => process.env.NODE_ENV !== 'production' && state
 };
 const view = (state, actions) => (
     <Switch>
-        <Route path="/" render={pass => Intro(pass, {state, actions})}/>
-        <Route path="/basic" render={pass => Basic(pass, {state, actions})}/>
-        <Route path="/advanced" render={pass => Advanced(pass, {state, actions})}/>
+        {/* <Enter css={{opacity: 0}} time={500} easing="cubic-bezier(0.0, 0.0, 0.2, 1)">
+            <Exit css={{opacity: 0}} time={500} easing="cubic-bezier(0.4, 0.0, 1, 1)"> */}
+        <Route path="/" render={() => Intro(state, actions)}/>
+        {/* </Exit>
+        </Enter> */}
+
+        {/* <Enter css={{opacity: 0}} time={500} easing="cubic-bezier(0.0, 0.0, 0.2, 1)">
+            <Exit css={{opacity: 0}} time={500} easing="cubic-bezier(0.4, 0.0, 1, 1)"> */}
+        <Route path="/basic" render={() => Basic(state, actions)}/>
+        {/* </Exit>
+        </Enter> */}
+
+        {/* <Enter css={{opacity: 0}} time={500} easing="cubic-bezier(0.0, 0.0, 0.2, 1)">
+            <Exit css={{opacity: 0}} time={500} easing="cubic-bezier(0.4, 0.0, 1, 1)"> */}
+        <Route path="/advanced" render={() => Advanced(state, actions)}/>
+        {/* </Exit>
+        </Enter> */}
     </Switch>
 );
 
 if (process.env.NODE_ENV !== 'production') globApp = window.globApp = app(state, actions, view, document.body);
 else globApp = app(state, actions, view, document.body);
+window.h = h;
 
 location.subscribe(globApp.location);

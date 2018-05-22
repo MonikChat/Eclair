@@ -4,3 +4,7 @@ export function cleanString(str, space=false) {
 
     return ret.toLowerCase();
 }
+
+export function defer(func) {
+    setTimeout(func, 0);
+}

@@ -1,5 +1,7 @@
 import {h} from 'hyperapp';
 import {Link} from '@hyperapp/router';
+import overlayScrollbars from 'overlayscrollbars';
+
 import {Rocket, Back, Shuffle, Loop, X, XCircle, PlusCircle, Face, Body, ArrowDown, Keyboard, PlayCircle, ChevronLeft, ChevronRight} from '../components';
 
 const codeTemplate = `
@@ -11,22 +13,22 @@ label {{label}}:
     return
 `.trim();
 
-export const Advanced = (_, {state, actions}) => (
-    <div data-hyperapp-root>
+export const Advanced = (state, actions) => (
+    <div key="advanced" data-hyperapp-root>
         <nav>
             <Link to="/">
                 <button class="back-button"><Back/></button>
             </Link>
             <div class="title">
                 <h3 class="white ml-4 w-400">Advanced Editor</h3>
-                <Rocket/>
+                <Rocket class="ml-2"/>
             </div>
-        </nav>,
+        </nav>
 
         <div class="advanced-container py-6 large-pad-x">
             <div class="columns gutter-4">
                 <div class="column one-half-lg-full-sm pr-4 pl-2">
-                    <div class="editor shadow">
+                    <div class="editor shadow" oncreate={el => overlayScrollbars(el, {})}>
                         <div class="header columns">
                             <div class="column dialogue-option one-third-lg-full-sm">
                                 <input type="radio" id="randomised" name="special-options" value="randomised"/>
