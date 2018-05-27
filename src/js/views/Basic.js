@@ -75,25 +75,34 @@ export const Basic = (state, actions) => {
 function generateSection(actions, currentSection, currentValue) {
     let baseInput = ({
         input: <input id={`basic-${currentSection.section}`}
-            type="text" class="form-control one-half-lg-full-sm" placeholder={currentSection.placeholder}
+            type="text" class="form-control full" placeholder={currentSection.placeholder}
+            style={{transition: 'background-color 0.2s ease-out, border-color 0.2s ease-out'}}
             oncreate={el => {
                 el.value = currentValue || '';
-                el.addEventListener('keyup', ev => ev.keyCode === 13 && el.nextElementSibling.click()); // Press the "next" button when the user presses enter.
+                el.addEventListener('keyup', ev => {
+                    if (ev.keyCode === 13 && !el.value) invalidShake(el);
+                    else if (ev.keyCode === 13) el.parentElement.nextElementSibling.click();
+                }); // Press the "next" button when the user presses enter.
                 el.focus(); // Forces keyboard focus to this element, so the user almost never has to move their mouse.
             }}
-            oninput={ev => actions.basic.updateSection(ev.target.value)}/>,
+            oninput={ev => {
+                let el = ev.target;
+
+                if (el.value && el.dataset.hasBubble && el.nextElementSibling.classList.contains('bubble')) el.nextElementSibling.remove();
+                actions.basic.updateSection(el.value);
+            }}/>,
         dropdown: (
-            <div class="form-wrapper one-half-lg-full-sm" id="dropdown">
+            <div class="form-wrapper full">
                 <select id={`basic-${currentSection.section}`}
                     class="form-control full" aria-label="Categories"
                     oncreate={el => {
                         if (currentValue) el.value = currentValue;
                     }}
                     onchange={ev => {
-                        if (ev.target.value && ev.target.value !== 'null') actions.basic.updateSection([ev.target.value]);
+                        if (ev.target.value) actions.basic.updateSection([ev.target.value]);
                         else actions.basic.updateSection(null);
                     }}>
-                    <option value="null">Select a category</option>
+                    <option value="" disabled selected>Select a category</option>
                     {categories.map(v => <option value={cleanString(v)}>{v}</option>)}
                 </select>
                 <div class="fake-arrow"><ArrowDown/></div>
@@ -107,6 +116,7 @@ function generateSection(actions, currentSection, currentValue) {
             <p>If you're seeing this in production, you might want to report that <a href="https://github.com/ProjectMonika/Eclair/issues" target="_blank">here</a></p>
         </div>
     );
+    else baseInput = <div class="one-half-lg-full-sm relative">{baseInput}</div>;
 
     if (currentSection.multi) currentSection.buttons = currentSection.buttons ? currentSection.buttons.concat({
         click: 'newInput(this)',
@@ -124,8 +134,8 @@ function generateSection(actions, currentSection, currentValue) {
         <div class="input-group one-half-lg-full-sm">
             {baseInput}
             {currentSection.buttons.map(btn => (
-                <span class="input-group-button">
-                    <button class={`btn btn-${btn.colour} tooltipped tooltipped-n`} aria-label={btn.label} onclick={btn.click}>
+                <span class="input-group-button tooltipped tooltipped-n" aria-label={btn.label}>
+                    <button class={`btn btn-${btn.colour}`} aria-label={btn.label} onclick={btn.click}>
                         {h(otherIcons[btn.icon], {}, null)}
                     </button>
                     {/*i === 0 && <div class="image-selector shadow" oncreate={el => overlayScrollbars(el, {className: 'os-theme-light'})}>
@@ -146,6 +156,34 @@ function generateSection(actions, currentSection, currentValue) {
     );
 
     return baseInput;
+}
+
+function invalidShake(el) {
+    let shaker;
+
+    if (el.parentElement.classList.contains('input-group')) shaker = el.parentElement;
+    else shaker = el;
+
+    if (!el.dataset.hasBubble) {
+        let bubble = document.createElement('div');
+
+        bubble.innerText = 'Please provide a valid value';
+
+        bubble.classList.add('bubble', 'flash', 'flash-error');
+        shaker.parentNode.insertBefore(bubble, el.nextSibling);
+
+        el.dataset.hasBubble = true;
+    }
+
+    if (!el.dataset.isShaking) {
+        shaker.classList.add('shake', 'form-error');
+        el.dataset.isShaking = true;
+
+        setTimeout(() => {
+            shaker.classList.remove('shake', 'form-error');
+            el.dataset.isShaking = null;
+        }, 1000);
+    }
 }
 
 // function createSelector(imgStart, range, attr) {}
