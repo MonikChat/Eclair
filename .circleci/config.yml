@@ -1,0 +1,19 @@
+version: 2
+notify:
+  webhooks:
+    - url: https://circledisc-clarity.herokuapp.com/webhook/circle
+jobs:
+  build:
+    docker:
+      - image: chinodesuuu/ci-amethyst:latest  
+    steps:
+      - checkout
+      - run:
+          name: NPM Install deps
+          command: npm i --save     
+      - run:
+          name: NPM Lint
+          command: npm run lint
+      - run:
+          name: Parcel test build
+          command: npm run build
