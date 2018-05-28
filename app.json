@@ -1,0 +1,19 @@
+{
+  "name": "Eclair",
+  "description": "A MAS Dialogue Wizard",
+  "scripts": {
+    "postdeploy": "npm run build"
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
