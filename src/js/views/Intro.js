@@ -12,7 +12,7 @@ export const Intro = (_, actions) => (
                 </h1>
 
                 <p class="text-center white f3">
-                    A dialogue generator <a href="https://www.monikaafterstory.com/" target="blank" class="inline-link">Monika After Story</a>.
+                    A dialogue generator for <a href="https://www.monikaafterstory.com/" target="blank" class="inline-link">Monika After Story</a>.
                 </p>
                 <p class="text-center white f2 py-4">
                     Pick a mode below to get started<br/>
