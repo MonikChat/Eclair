@@ -7,7 +7,7 @@
     "build": "parcel build src/index.html -d dist/ --public-url ./",
     "start": "parcel src/index.html -d dev/ -p $PORT",
     "lint": "eslint ./src",
-    "heroku-postinstall": "npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@hyperapp/router": "^0.7.0",
