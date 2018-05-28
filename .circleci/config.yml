@@ -11,9 +11,9 @@ jobs:
       - run:
           name: NPM Install deps
           command: npm i --save     
-      - run:
-          name: NPM Lint
-          command: npm run lint
+#      - run:
+#          name: NPM Lint
+#          command: npm run lint
       - run:
           name: Parcel test build
           command: npm run build
