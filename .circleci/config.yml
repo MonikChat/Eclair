@@ -5,7 +5,7 @@ notify:
 jobs:
   build:
     docker:
-      - image: chinodesuuu/ci-amethyst:latest  
+      - image: node:carbon  
     steps:
       - checkout
       - run:
