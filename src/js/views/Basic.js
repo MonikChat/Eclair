@@ -118,17 +118,21 @@ function generateSection(actions, currentSection, currentValue) {
     );
     else baseInput = <div class="one-half-lg-full-sm relative">{baseInput}</div>;
 
-    if (currentSection.multi) currentSection.buttons = currentSection.buttons ? currentSection.buttons.concat({
-        click: 'newInput(this)',
-        icon: 'PlusCircle',
-        colour: 'green',
-        label: 'Add another.'
-    }) : [{
-        click: 'newInput(this)',
-        icon: 'PlusCircle',
-        colour: 'green',
-        label: 'Add another.'
-    }];
+    if (currentSection.multi && !(currentSection.buttons && currentSection.buttons.find(v => v.type === 'add'))) {
+        currentSection.buttons = currentSection.buttons ? currentSection.buttons.concat({
+            type: 'add',
+            click: 'newInput(this)',
+            icon: 'PlusCircle',
+            colour: 'green',
+            label: 'Add another.'
+        }) : [{
+            type: 'add',
+            click: 'newInput(this)',
+            icon: 'PlusCircle',
+            colour: 'green',
+            label: 'Add another.'
+        }];
+    }
 
     if (currentSection.buttons) baseInput = (
         <div class="input-group one-half-lg-full-sm">
